@@ -437,12 +437,22 @@
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var audio = document.getElementById('audio');
-            setTimeout(function () {
-                audio.play();
-            }, 2000);
-        });
+        function playAudio() {
+            var audio = document.getElementById("audio");
+            audio.play().catch(error => {
+                console.log("Autoplay diblokir:", error);
+            });
+
+            // Hapus event listener setelah audio mulai diputar
+            document.removeEventListener("click", playAudio);
+            document.removeEventListener("touchstart", playAudio);
+            document.removeEventListener("keydown", playAudio);
+        }
+
+        // Menjalankan playAudio saat user berinteraksi dengan layar atau keyboard
+        document.addEventListener("click", playAudio);
+        document.addEventListener("touchstart", playAudio);
+        document.addEventListener("keydown", playAudio);
     </script>
 
     <script>
