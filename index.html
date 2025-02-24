@@ -347,6 +347,7 @@
     <!-- <div class="video-background">
         <div id="youtube-player"></div>
     </div> -->
+    <audio loop id="audio" src="./bensound.mp3"></audio>
 
     <div class="bg-animation">
         <div id="stars"></div>
@@ -434,6 +435,22 @@
 
         showSlide(currentSlide);
     </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var audio = document.getElementById('audio');
+        var message = document.getElementById('play-music-message');
+
+        audio.play().catch(function(error) {
+            message.style.display = 'block'; // Tampilkan pesan jika autoplay diblokir
+        });
+
+        document.addEventListener('click', function() {
+            audio.play();
+            message.style.display = 'none'; // Sembunyikan pesan setelah audio diputar
+        });
+    });
+</script>
 
     <script>
         var tag = document.createElement("script");
