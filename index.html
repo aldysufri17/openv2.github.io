@@ -437,20 +437,13 @@
     </script>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var audio = document.getElementById('audio');
-        var message = document.getElementById('play-music-message');
-
-        audio.play().catch(function(error) {
-            message.style.display = 'block'; // Tampilkan pesan jika autoplay diblokir
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('audio');
+            setTimeout(function () {
+                audio.play();
+            }, 2000);
         });
-
-        document.addEventListener('click', function() {
-            audio.play();
-            message.style.display = 'none'; // Sembunyikan pesan setelah audio diputar
-        });
-    });
-</script>
+    </script>
 
     <script>
         var tag = document.createElement("script");
