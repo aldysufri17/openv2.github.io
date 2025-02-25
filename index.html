@@ -143,7 +143,7 @@
         }
 
         button {
-            margin-top: 15px;
+            margin-top: 70px;
             padding: 12px 24px;
             font-size: 16px;
             background: #444;
@@ -152,15 +152,45 @@
             cursor: pointer;
             border-radius: 8px;
             transition: background 0.3s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            animation: glow 1.5s infinite alternate;
         }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0px 0 5px rgba(212, 124, 124, 0.5);
+                transform: scale(1);
+            }
+
+            100% {
+                box-shadow: 0px 0 20px rgb(189, 95, 95), 0 20px 30px rgba(255, 152, 152, 0.8);
+                transform: scale(1.05);
+            }
+        }
+
+        /* Efek ketika tombol dihover */
+        button:hover {
+            background: #666;
+            animation: pulse 0.5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.05);
+            }
+        }
+
 
         .text {
             margin-bottom: 100px;
         }
 
-        button:hover {
-            background: #666;
-        }
 
         @media (max-width: 600px) {
             .text {
