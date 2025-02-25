@@ -478,6 +478,17 @@
     </script>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let audio = document.getElementById("audio");
+
+            // Mencoba memutar audio saat halaman dimuat
+            audio.play().catch(error => {
+                console.log("Autoplay dicegah oleh browser, perlu interaksi pengguna.");
+            });
+        });
+    </script>
+
+        <!-- <script>
         function playAudio() {
             var audio = document.getElementById("audio");
             audio.play().catch(error => {
@@ -494,7 +505,7 @@
         document.addEventListener("click", playAudio);
         document.addEventListener("touchstart", playAudio);
         document.addEventListener("keydown", playAudio);
-    </script>
+    </script> -->
 </body>
 
 </html>
