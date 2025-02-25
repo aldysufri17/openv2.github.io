@@ -40,6 +40,16 @@
             z-index: 1;
             padding: 15px;
             box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.8), 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: none;
+            opacity: 0;
+            transform: translateY(70px) rotateY(180deg);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .show-container {
+            display: block;
+            opacity: 1;
+            transform: translateY(0) rotateY(0deg);
         }
 
         /* Slides Styling */
@@ -300,6 +310,18 @@
             <button class="nav-button next" onclick="nextSlide()">&#10095;</button>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                let container = document.querySelector(".container");
+                container.style.display = "block"; // Pastikan elemen muncul terlebih dahulu
+                setTimeout(() => {
+                    container.classList.add("show-container");
+                }, 10); // Sedikit delay agar transisi bisa diterapkan
+            }, 2000);
+        });
+    </script>
 
     <script>
         const canvas = document.getElementById("fireworksCanvas");
